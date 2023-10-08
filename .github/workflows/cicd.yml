@@ -2,20 +2,28 @@ name: CI
 on:
   push:
     branches: [ "main" ]
-  pull_request: 
+  pull_request:
     branches: [ "main" ]
-  workflow_dispatch: 
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.7", "3.8", "3.9", "3.10"]
     steps:
-    - uses: actions/checkout@v3
-    - name: Install dependencies
-      run: make install
-    - name: Lint with Pylint
-      run: make lint
-    - name: Test with Pytest
-      run: make test
-    - name: Format code with Python black
-      run: make format
+      - uses: actions/checkout@v3
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: 'pip'
+      - name: install packages
+        run: make install
+      - name: lint
+        run: make lint
+      - name: test
+        run: make test
+      - name: format
+        run: make format
