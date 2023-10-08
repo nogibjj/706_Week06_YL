@@ -12,7 +12,8 @@ This repository includes the main tasks for Week 6:
 * `main.py` is a Python file that contains the main function.
 * `test_main.py`  is a test file for `descriptive.py` that can successfully run in IDEs.
 * `requirements.txt` is to specify the dependencies (libraries and packages) required to run the project.
-* `mylib` contains the script for extracting, querying, transforming and loading the database: 
+* `mylib` contains the script for extracting, querying, transforming and loading the database: `extract.py`, `query.py`, `transform_load.py`
+* `query.md` contains the query to be executed, including join, aggregate, and sort operations.2
 
 ## Project description
 
@@ -24,6 +25,8 @@ This repository includes the main tasks for Week 6:
 * Use codespace for scripting
 * Container built in `devcontainers` and virtual environment activated via `requirements.txt`
 * To run the code, use the command `python main.py` in the terminal
+
+## Query explanation
 
 ## Check format & errors
 
