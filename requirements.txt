@@ -19,3 +19,7 @@ pandas
 matplotlib
 seaborn
 polars
+
+## sql
+python-dotenv
+databricks-sql-connector
