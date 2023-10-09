@@ -36,3 +36,5 @@ def Query():
         c.close()
     
     log_query(f"{query}", result)
+
+    return "Success"
