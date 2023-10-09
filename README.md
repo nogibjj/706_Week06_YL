@@ -17,6 +17,7 @@ This repository includes the main tasks for Week 6:
 
 ## Project description
 
+* Connect to a SQL Databricks database using `databricks` module
 * Design a SQL query involving joins, aggregation, and sorting
 * Provide explanations for the query logic and the result
 
