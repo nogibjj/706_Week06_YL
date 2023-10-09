@@ -25,6 +25,7 @@ def main():
         print("Transforming data...")
         load()
     elif args.action == "general_query":
+        print("Executing the query...")
         Query(args.query)
     else:
         print(f"Unknown action: {args.action}")

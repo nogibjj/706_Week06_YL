@@ -7,7 +7,6 @@ def test_extract():
         text=True,
         check=True
     )
-    assert result.returncode == 0
     assert "Extracting data..." in result.stdout
 
 def test_transform_load():
@@ -17,7 +16,6 @@ def test_transform_load():
         text=True,
         check=True
     )
-    assert result.returncode == 0
     assert "Transforming data..." in result.stdout
 
 def test_Query():
@@ -38,4 +36,4 @@ def test_Query():
          text=True,
          check=True
     )
-    assert result.check_returncode == 0
+    assert "Executing the query..." in result.stdout
