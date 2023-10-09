@@ -9,17 +9,28 @@ def log_query(query, result="none"):
         f.write(f"```sql\n{query}\n```\n\n")
         f.write(f"```response from databricks \n{result}\n```\n\n")
 
-def Query(query):
+def Query():
     load_dotenv()
-    server = os.getenv("server_hostname")
-    access_token = os.getenv("access_token")
-    http_path = os.getenv("http_path")
+    server = os.getenv("SERVER_HOSTNAME")
+    access_token = os.getenv("TOKEN")
+    http_path = os.getenv("HTTP_PATH")
     with sql.connect(
         server_hostname=server,
         http_path=http_path,
         access_token=access_token
     ) as conn:
         c= conn.cursor()
+        query = """SELECT team AS Team, COUNT(*) AS MatchesPlayed 
+        FROM 
+        (SELECT team1 AS team FROM default.wwc0602
+        UNION ALL 
+        SELECT team2 AS team FROM default.wwc0602
+        UNION ALL
+        SELECT team1 AS team FROM default.wwc0705
+        UNION ALL
+        SELECT team2 AS team FROM default.wwc0705) AS TotalTeams
+        GROUP BY Team
+        ORDER BY MatchesPlayed DESC;"""
         c.execute(query)
         result = c.fetchall()
         c.close()

@@ -10,9 +10,9 @@ def load(data1="data/wwc-matches-20150602-093000",
     df2 = pd.read_csv(data2, delimiter=",", skiprows=1)
 
     load_dotenv()
-    host = os.getenv("server_hostname")
-    token = os.getenv("token")
-    path = os.getenv("http_path")
+    host = os.getenv("SERVER_HOSTNAME")
+    token = os.getenv("TOKEN")
+    path = os.getenv("HTTP_PATH")
     with sql.connect(server_hostname=host, access_token=token, http_path=path) as conn:
         c = conn.cursor()
         c.execute("SHOW TABLES FROM default LIKE 'wwc0602'")
