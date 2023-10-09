@@ -11,8 +11,5 @@ def extract(url1="https://raw.githubusercontent.com/fivethirtyeight/data/master/
     with requests.get(url2) as r:
         with open(file_path2, "wb") as f:
             f.write(r.content)
-    
-    df1 = pd.read_csv(file_path1).dropna().to_csv(file_path1, index=False)
-    df2 = pd.read_csv(file_path2).dropna().to_csv(file_path2, index=False)
 
     return file_path1, file_path2

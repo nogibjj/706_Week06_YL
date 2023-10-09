@@ -1,5 +1,4 @@
 import os
-import requests
 import pandas as pd
 from databricks import sql
 from dotenv import load_dotenv
