@@ -1,5 +1,4 @@
 import requests
-import pandas as pd
 
 def extract(url1="https://raw.githubusercontent.com/fivethirtyeight/data/master/womens-world-cup-predictions/wwc-matches-20150602-093000.csv?raw=true",
             url2="https://raw.githubusercontent.com/fivethirtyeight/data/master/womens-world-cup-predictions/wwc-matches-20150705-205539.csv?raw=true",
