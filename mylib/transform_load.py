@@ -14,10 +14,10 @@ def load(data1="data/wwc-matches-20150602-093000",
     path = os.getenv("HTTP_PATH")
     with sql.connect(server_hostname=host, access_token=token, http_path=path) as conn:
         c = conn.cursor()
-        c.execute("SHOW TABLES FROM default LIKE 'wwc0602'")
+        c.execute("SHOW TABLES FROM default LIKE 'wwc_0602'")
         result = c.fetchall()
         if not result:
-            c.execute("""CREATE TABLE IF NOT EXISTS wwc0602(
+            c.execute("""CREATE TABLE IF NOT EXISTS wwc_0602(
                  id int,
                  date string,
                  group string,
@@ -29,12 +29,12 @@ def load(data1="data/wwc-matches-20150602-093000",
             )""")
             for _, row in df1.iterrows():
                 convert = (_,) + tuple(row)
-                c.execute(f"INSERT INTO wwc0602 VALUES{convert}")
-            c.execute("SHOW TABLES FROM default LIKE 'wwc0602'")
+                c.execute(f"INSERT INTO wwc_0602 VALUES{convert}")
+            c.execute("SHOW TABLES FROM default LIKE 'wwc_0602'")
             result = c.fetchall()
             
             if not result:
-                c.execute("""CREATE TABLE IF NOT EXISTS wwc0705(
+                c.execute("""CREATE TABLE IF NOT EXISTS wwc_0705(
                  id int,
                  date string,
                  group string,
@@ -46,7 +46,7 @@ def load(data1="data/wwc-matches-20150602-093000",
             )""")
             for _, row in df2.iterrows():
                 convert = (_,) + tuple(row)
-                c.execute(f"INSERT INTO wwc0705 VALUES{convert}")
+                c.execute(f"INSERT INTO wwc_0705 VALUES{convert}")
             c.close()
 
     return "success"
