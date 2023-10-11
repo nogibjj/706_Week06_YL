@@ -27,7 +27,10 @@ This repository includes the main tasks for Week 6:
 * Container built in `devcontainers` and virtual environment activated via `requirements.txt`
 * To run the code, use the command `python main.py` in the terminal
 
-## Query explanation
+## Query explanation & expected results
+
+The query returns the total number of match played for the women world cup, group by countries.
+![Alt text](figures/res.png)
 
 ## Check format & errors
 

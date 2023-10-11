@@ -22,13 +22,13 @@ def Query():
         c= conn.cursor()
         query = """SELECT team AS Team, COUNT(*) AS MatchesPlayed 
         FROM 
-        (SELECT team1 AS team FROM default.wwc0602
+        (SELECT team1 AS team FROM default.wwc_0602
         UNION ALL 
-        SELECT team2 AS team FROM default.wwc0602
+        SELECT team2 AS team FROM default.wwc_0602
         UNION ALL
-        SELECT team1 AS team FROM default.wwc0705
+        SELECT team1 AS team FROM default.wwc_0705
         UNION ALL
-        SELECT team2 AS team FROM default.wwc0705) AS TotalTeams
+        SELECT team2 AS team FROM default.wwc_0705) AS TotalTeams
         GROUP BY Team
         ORDER BY MatchesPlayed DESC;"""
         c.execute(query)
