@@ -6,6 +6,9 @@ class testFDBFunctions(unittest.TestCase):
         result = Query()
         self.assertEqual(result, "Success", "Failed to execute the query")
 
+if __name__ == "__main__":
+    unittest.main()
+
 # import subprocess
 
 # def test_extract():
