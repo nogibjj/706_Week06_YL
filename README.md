@@ -30,6 +30,21 @@ This repository includes the main tasks for Week 6:
 
 ## Query explanation & expected results
 
+```
+SELECT team AS Team, COUNT(*) AS MatchesPlayed 
+    FROM 
+    (SELECT team1 AS team FROM default.wwc_0602
+    UNION ALL 
+    SELECT team2 AS team FROM default.wwc_0602
+    UNION ALL
+    SELECT team1 AS team FROM default.wwc_0705
+    UNION ALL
+    SELECT team2 AS team FROM default.wwc_0705) AS TotalTeams
+    GROUP BY Team
+    ORDER BY MatchesPlayed DESC;
+```
+I create a new table by joining the teams from the two tables from the women world cup dataset on 06/02/2015 and 07/07/2015, and enumerate the number of matches each national team played during these two days from this new table.
+
 The query returns the total number of match played for the women world cup, group by countries.
 ![Alt text](figures/res.png)
 
@@ -40,6 +55,8 @@ The query returns the total number of match played for the women world cup, grou
 2. make lint
 
 3. make test
+
+![Alt text](figures/test.png)
 
 ## Reference
 
